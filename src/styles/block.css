@@ -1,0 +1,26 @@
+.block {
+  border: 2px solid blueviolet;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--player1Color);
+  font-size: 15vmin;
+  aspect-ratio: 1/1;
+  width: 100%;
+  padding: 20px;
+}
+.iconContainer {
+  font-size: 15vmin;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@media only screen and (max-width: 440px) {
+  .block {
+    padding: 5px;
+  }
+  .iconContainer {
+    font-size: 10vmin;
+  }
+}

@@ -1,0 +1,9 @@
+export { default as boy } from "./boy.png";
+export { default as cat } from "./cat.png";
+export { default as chicken } from "./chicken.png";
+export { default as girl } from "./girl.png";
+export { default as pig } from "./pig.png";
+export { default as santa } from "./santa.png";
+export { default as skeleton } from "./skeleton.png";
+export { default as dog } from "./dog.png";
+export { default as glasses } from "./glasses.png";

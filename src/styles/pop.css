@@ -1,0 +1,173 @@
+.pop {
+  background-color: rgba(0, 0, 0, 0.4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  min-height: calc(100vh - var(--navHeight));
+  height: max-content;
+  overflow: hidden;
+}
+
+.textContainer {
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  gap: 10px;
+}
+
+.title {
+  font-size: 5vmin;
+  text-align: center;
+  letter-spacing: 2px;
+  flex: 1;
+  color: lightgray;
+}
+
+.startBtn {
+  font-size: 5vmin;
+  cursor: pointer;
+  border: none;
+  border-radius: 10px;
+  padding: 5px 10px;
+  letter-spacing: 1px;
+  font-weight: bold;
+  transition: all 0.3s ease;
+  background-color: blueviolet;
+  color: lightgray;
+}
+
+.startBtn:hover {
+  background-color: lightgray;
+  color: blueviolet;
+}
+
+.chooseContainer {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  padding: 50px;
+  flex: 2;
+  aspect-ratio: 1/1;
+}
+
+.playerConfirmContainer {
+  grid-column: 1/4;
+  width: 60%;
+  justify-self: center;
+  align-self: center;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  background-color: rgb(39, 38, 38);
+  padding: 10px;
+  border-radius: 10px;
+  box-shadow: 0 0 5px gray;
+  height: max-content;
+}
+
+.imageBigContainer {
+  overflow: hidden;
+  aspect-ratio: 1/1;
+  padding: 10px;
+  border-radius: 10px;
+  background-color: rgb(26, 25, 25);
+}
+
+.playerImg {
+  width: 100%;
+  aspect-ratio: 1/1;
+  object-fit: cover;
+}
+.inputName {
+  padding: 5px;
+  font-size: 3vmin;
+  border-radius: 10px;
+  border: none;
+  letter-spacing: 1px;
+  background-color: rgb(26, 25, 25);
+  color: lightgray;
+}
+
+.chooseAgainBtn {
+  font-size: 3.5vmin;
+  color: white;
+  border: none;
+  padding: 5px 0;
+  letter-spacing: 1px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.chooseAgainBtn:hover {
+  background-color: rgb(26, 25, 25);
+}
+
+.playerContainer {
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  align-self: center;
+  justify-self: center;
+  background-color: rgb(26, 25, 25);
+  padding: 10px;
+  transition: 0.3s all ease;
+  border-radius: 10px;
+  cursor: pointer;
+  box-shadow: 0 0 2px #545454;
+}
+.blue {
+  background-color: var(--player1Color);
+}
+
+.blue:hover {
+  color: var(--player1Color);
+}
+
+.green {
+  background-color: var(--player2Color);
+}
+
+.green:hover {
+  color: var(--player2Color);
+}
+.blueHover:hover {
+  background-color: var(--player1Color);
+}
+
+.greenHover:hover {
+  background-color: var(--player2Color);
+}
+
+.player {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+}
+
+@media only screen and (max-width: 1024px) {
+  .chooseContainer {
+    grid-template-columns: repeat(2, 1fr);
+    padding: 10px;
+    aspect-ratio: unset;
+  }
+  .playerConfirmContainer {
+    width: 95%;
+  }
+  .playerContainer {
+    padding: 5px;
+  }
+}
+
+@media only screen and (max-width: 440px) {
+  .pop {
+    flex-direction: column;
+    padding: 10px;
+  }
+  .chooseContainer {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .playerConfirmContainer {
+    width: 50%;
+  }
+}

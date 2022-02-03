@@ -1,0 +1,33 @@
+.app {
+  width: 100%;
+  min-height: 100vh;
+  height: max-content;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: rgb(17, 17, 17);
+  --navHeight: 60px;
+  --player1Color: rgb(41, 147, 235);
+  --player2Color: rgb(29, 187, 147);
+  user-select: none;
+}
+
+.game {
+  width: 100%;
+  min-height: calc(100vh - var(--navHeight));
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+@media only screen and (max-width: 1024px) {
+  .game {
+    flex-direction: column;
+  }
+}
+
+@media only screen and (max-width: 440px) {
+  .app {
+    --navHeight: 40px;
+  }
+}

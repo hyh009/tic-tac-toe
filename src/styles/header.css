@@ -1,0 +1,50 @@
+.header {
+  width: 100%;
+  height: var(--navHeight);
+  background-color: rgb(59, 13, 102);
+  display: flex;
+  padding: 5px 10px;
+}
+
+.middle {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.middleText {
+  color: lightgray;
+  font-size: 5vmin;
+}
+
+.left {
+  flex: 1;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 10px;
+  overflow: hidden;
+}
+
+.right {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 10px;
+  overflow: hidden;
+}
+
+.smallImg {
+  height: 100%;
+  aspect-ratio: 1/1;
+  object-fit: cover;
+}
+
+.playerName {
+  color: lightgray;
+  font-size: 3vmin;
+  font-weight: bold;
+  letter-spacing: 1px;
+}

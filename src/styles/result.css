@@ -1,0 +1,97 @@
+.gameEndContainer {
+  width: 100%;
+  height: calc(100vh - var(--navHeight));
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.resultContainer {
+  width: 30%;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.resultTitle {
+  color: rgba(222, 224, 61, 0.877);
+  text-align: center;
+  font-size: 7vmin;
+  font-weight: bold;
+  letter-spacing: 2px;
+}
+
+.winner {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.winnerImg {
+  width: 100%;
+  filter: drop-shadow(0 0 0.3vmin lightgray);
+}
+.winnerName {
+  font-size: 4.5vmin;
+  color: lightgray;
+  text-align: center;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+.drawContainer {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.drawText {
+  text-align: center;
+  font-size: 5vmin;
+  font-weight: bold;
+  letter-spacing: 1px;
+  color: lightgray;
+  background-color: blueviolet;
+  border-radius: 10px;
+}
+.drawImgContainer {
+  width: 100%;
+  display: flex;
+  padding: 20px 0;
+  filter: drop-shadow(0 0 0.3vmin lightgray);
+}
+
+.drawImg {
+  width: 50%;
+}
+
+.resultBtnContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.resultBtn {
+  background-color: blueviolet;
+  color: lightgray;
+  border: none;
+  font-size: 4vmin;
+  font-weight: bold;
+  padding: 5px 7px;
+  border-radius: 10px;
+  letter-spacing: 1px;
+  cursor: pointer;
+}
+
+@media only screen and (max-width: 1024px) {
+  .resultContainer {
+    width: 50%;
+  }
+
+  .winnerImg {
+    width: 80%;
+  }
+}

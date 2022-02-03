@@ -1,0 +1,23 @@
+.board {
+  background-color: rgb(37, 37, 37);
+  border: 2px solid blueviolet;
+  border-radius: 10px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  overflow: hidden;
+  aspect-ratio: 1/1;
+  width: 40%;
+}
+
+@media only screen and (max-width: 1024px) {
+  .board {
+    width: 80%;
+    height: auto;
+    aspect-ratio: 1/1;
+    overflow: visible;
+  }
+}
+
+@media only screen and (max-width: 440px) {
+}

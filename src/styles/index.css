@@ -1,0 +1,12 @@
+@import "App.css";
+@import "pop.css";
+@import "header.css";
+@import "board.css";
+@import "player.css";
+@import "block.css";
+@import "result.css";
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
