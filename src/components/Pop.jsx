@@ -1,4 +1,3 @@
-import { useState } from "react";
 import {
   boy,
   cat,
@@ -10,33 +9,81 @@ import {
   santa,
   skeleton,
 } from "../imgs";
+import { Action } from "../reducerType";
 
-const Pop = ({ player1, player2, setPlayer1, setPlayer2, setPop }) => {
+const Pop = ({ gameDispatch, gameState }) => {
   const images = [boy, cat, chicken, dog, girl, glasses, pig, santa, skeleton];
 
+  // change player's image (remove, add)
+  const handleImage = (e, role, method) => {
+    if (method === "add") {
+      if (role === "player1") {
+        gameDispatch({
+          type: Action.CONFIRM_ROLE1,
+          payload: { col: "src", src: e.target.src },
+        });
+      } else if (role === "player2") {
+        gameDispatch({
+          type: Action.CONFIRM_ROLE2,
+          payload: { col: "src", src: e.target.src },
+        });
+      }
+    } else if (method === "remove") {
+      if (role === "player1") {
+        gameDispatch({
+          type: Action.CONFIRM_ROLE1,
+          payload: { col: "src", src: "" },
+        });
+      } else if (role === "player2") {
+        gameDispatch({
+          type: Action.CONFIRM_ROLE2,
+          payload: { col: "src", src: "" },
+        });
+      }
+    }
+  };
+  // change player's name
+  const handleName = (e, role) => {
+    if (role === "player1") {
+      gameDispatch({
+        type: Action.CONFIRM_ROLE1,
+        payload: { col: "name", name: e.target.value },
+      });
+    } else if (role === "player2") {
+      gameDispatch({
+        type: Action.CONFIRM_ROLE2,
+        payload: { col: "name", name: e.target.value },
+      });
+    }
+  };
+
+  const handleGameStart = () => {
+    gameDispatch({ type: Action.GAME_START });
+  };
   return (
     <div className="pop">
       <div className="chooseContainer">
-        {player1?.src ? (
+        {gameState.player1?.src ? (
           <div className="playerConfirmContainer">
             <div className="imageBigContainer">
-              <img className="playerImg" src={player1?.src} alt="player1" />
+              <img
+                className="playerImg"
+                src={gameState.player1?.src}
+                alt="player1"
+              />
             </div>
             <input
               className="inputName"
               name="name"
               type="text"
               placeholder="請輸入玩家1名稱"
-              value={player1?.name}
-              onChange={(e) =>
-                setPlayer1((prev) => ({ ...prev, name: e.target.value }))
-              }
+              value={gameState.player1?.name}
+              onChange={(e) => handleName(e, "player1")}
             />
             <button
               className="chooseAgainBtn blue"
               onClick={(e) => {
-                e.preventDefault();
-                setPlayer1((prev) => ({ ...prev, src: "" }));
+                handleImage(e, "player1", "remove");
               }}
             >
               重新選擇
@@ -51,10 +98,7 @@ const Pop = ({ player1, player2, setPlayer1, setPlayer2, setPop }) => {
                 alt={`player${index}`}
                 key={index}
                 onClick={(e) => {
-                  setPlayer1((prev) => ({
-                    ...prev,
-                    src: e.target?.src,
-                  }));
+                  handleImage(e, "player1", "add");
                 }}
               />
             </div>
@@ -63,14 +107,16 @@ const Pop = ({ player1, player2, setPlayer1, setPlayer2, setPop }) => {
       </div>
       <div className="textContainer">
         <span className="title">
-          {!player1?.src || !player2?.src ? "請選擇角色" : ""}
+          {!gameState.player1?.src || !gameState.player2?.src
+            ? "請選擇角色"
+            : ""}
         </span>
-        {player1?.src && player2?.src && (
+        {gameState.player1?.src && gameState.player2?.src && (
           <button
             className="startBtn"
             onClick={(e) => {
               e.preventDefault();
-              setPop(false);
+              handleGameStart(e);
             }}
           >
             開始遊戲
@@ -78,26 +124,27 @@ const Pop = ({ player1, player2, setPlayer1, setPlayer2, setPop }) => {
         )}
       </div>
       <div className="chooseContainer">
-        {player2?.src ? (
+        {gameState.player2?.src ? (
           <div className="playerConfirmContainer">
             <div className="imageBigContainer">
-              <img className="playerImg" src={player2?.src} alt="player2" />
+              <img
+                className="playerImg"
+                src={gameState.player2?.src}
+                alt="player2"
+              />
             </div>
             <input
               className="inputName"
               name="player2"
               type="text"
               placeholder="請輸入玩家2名稱"
-              value={player2?.name}
-              onChange={(e) =>
-                setPlayer2((prev) => ({ ...prev, name: e.target.value }))
-              }
+              value={gameState.player2?.name}
+              onChange={(e) => handleName(e, "player2")}
             />
             <button
               className="chooseAgainBtn green"
               onClick={(e) => {
-                e.preventDefault();
-                setPlayer2((prev) => ({ ...prev, src: null }));
+                handleImage(e, "player2", "remove");
               }}
             >
               重新選擇
@@ -111,10 +158,7 @@ const Pop = ({ player1, player2, setPlayer1, setPlayer2, setPop }) => {
                 src={Image}
                 alt={`player${index}`}
                 onClick={(e) => {
-                  setPlayer2((prev) => ({
-                    ...prev,
-                    src: e.target.src,
-                  }));
+                  handleImage(e, "player2", "add");
                 }}
               />
             </div>

@@ -1,7 +1,9 @@
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
+import { Action } from "../reducerType";
 import Block from "./Block";
 
-const Board = ({ setResult, board, setBoard, playing, setPlaying }) => {
+const Board = ({ gameDispatch, gameState }) => {
+  const board = gameState.board;
   useEffect(() => {
     const calculateWinner = () => {
       const winnerLines = [
@@ -32,18 +34,21 @@ const Board = ({ setResult, board, setBoard, playing, setPlaying }) => {
       return null;
     };
 
-    setResult(calculateWinner());
+    gameDispatch({
+      type: Action.GAME_RESULT,
+      payload: { result: calculateWinner() },
+    });
   }, [board]);
+
   return (
     <div className="board">
-      {board.map((block, index) => (
+      {gameState.board.map((block, index) => (
         <Block
           key={index}
           block={block}
-          setBoard={setBoard}
           index={index}
-          playing={playing}
-          setPlaying={setPlaying}
+          gameDispatch={gameDispatch}
+          gameState={gameState}
         />
       ))}
     </div>

@@ -1,5 +1,3 @@
-import React from "react";
-
 const Player = ({ player, Icon, color, playing }) => {
   return (
     <div className="sideContainer">
@@ -9,13 +7,13 @@ const Player = ({ player, Icon, color, playing }) => {
       <img className="sideImage" src={player.src} alt="玩家圖示" />
       {player.title === "player1" && (
         <div className={`turn ${playing === "player1" && "blue"}`}>
-          {playing === "player1" && `輪到${player.name || "玩家1"}`}
+          {playing === "player1" && `${player.name || "玩家1"}回合`}
         </div>
       )}
 
       {player.title === "player2" && (
         <div className={`turn ${playing === "player2" && "green"}`}>
-          {playing === "player2" && `輪到${player.name || "玩家2"}`}
+          {playing === "player2" && `${player.name || "玩家2"}回合`}
         </div>
       )}
     </div>

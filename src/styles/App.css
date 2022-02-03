@@ -18,16 +18,21 @@
   display: flex;
   justify-content: space-around;
   align-items: center;
+  padding: 20px;
 }
 
 @media only screen and (max-width: 1024px) {
   .game {
     flex-direction: column;
+    gap: 10px;
   }
 }
 
 @media only screen and (max-width: 440px) {
   .app {
     --navHeight: 40px;
+  }
+  .game {
+    padding: 20px 5px;
   }
 }
