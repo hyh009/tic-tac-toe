@@ -1,4 +1,4 @@
-import { useState, useEffect, useReducer } from "react";
+import { useReducer } from "react";
 import Pop from "./components/Pop";
 import Header from "./components/Header";
 import Board from "./components/Board";
